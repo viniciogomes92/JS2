@@ -3,16 +3,8 @@
 //Cria a calculadora
 function Calculadora () {
     //Trás as TAG HTML de classes "display" e "btn-clear" pras propriedades de mesmo nome
-    this.display = document.querySelector('.display')
-    this.btnClear = document.querySelector('.btn-clear')
-
-
-    //Dispara as funções básicas de nossa calculadora
-    this.inicia = () => {
-      this.cliqueBotoes();
-      this.clearDisplay();
-      this.pressEnter();
-    }
+    this.display = document.querySelector('.display');
+    this.btnClear = document.querySelector('.btn-clear');
 
     /* Ao pressionar uma tecla dentro do display, verifica se ela é a tecla ENTER,
     caso seja, chama a função doTheMath para efetuar a conta */
@@ -22,7 +14,7 @@ function Calculadora () {
           this.doTheMath();
         }
       })
-    }
+    };
     
 
     /* Recebe o valor do nosso display, executa uma expressão JS via eval,
@@ -30,7 +22,7 @@ function Calculadora () {
     que o cálculo é inválido. Se for um número ele retorna o  valor através de uma
     string pro nosso display */
     this.doTheMath = () => {
-      let conta = display.value;
+      let conta = this.display.value;
 
       try {
         conta = eval(conta);
@@ -45,16 +37,16 @@ function Calculadora () {
         alert('Conta inválida.');
         return;
       }
-    }
+    };
 
     //Remove um digíto do nosso display quando esta função for chamada
     this.removeOne = () => {
       this.display.value = this.display.value.slice(0, -1)
-    }
+    };
     //Zera nosso display quando esta função for chamada
     this.clearDisplay = () => {
       this.display.value = '';
-    }
+    };
 
     /* Função que captura o evento CLICK do nosso HTML e verifica quem foi clicado,
     se for um elemento da conta, chama btnParaDisplay. Se for o botão CLEAR, chama
@@ -65,27 +57,34 @@ function Calculadora () {
         const elemen = event.target;
         if(elemen.classList.contains('btn-num')){
           this.btnParaDisplay(elemen.innerText);
-        }
+        };
         
         if (elemen.classList.contains('btn-clear')){
           this.clearDisplay();
-        }
+        };
 
         if (elemen.classList.contains('btn-del')){
           this.removeOne();
-        }
+        };
 
         if (elemen.classList.contains('btn-equal')){
           this.doTheMath();
-        }
+        };
       })
-    }
+    };
 
     //Função que concatena os valores inseridos no display
     this.btnParaDisplay = (valor) => {
       this.display.value += valor;
-    }
-  }
+    };
+
+    //Dispara as funções básicas de nossa calculadora
+    this.inicia = () => {
+      this.cliqueBotoes();
+      this.clearDisplay();
+      this.pressEnter();
+    };
+  };
 
 //Joga a nossa factory function criaCalculadora pra dentro da const calculadora
 const calculadora = new Calculadora();
