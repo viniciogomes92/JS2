@@ -27,7 +27,7 @@ body {
 }
 
 .calculadora {
-  width: 50%;
+  width: 100%;
 }
 
 .display {
@@ -73,6 +73,10 @@ a:hover {
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
+  .calculadora {
+    width: 60%;
+  }
+  
   p {
     font-size: 1rem;
   }
