@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Formulário de cadastro</title>
+</head>
+<body>
+  <section class="container">
+    <h1>Cadastro de Pessoa</h1>
+    <ul>
+      <li>
+        <p class="form-text">Nenhum campo pode estar vazio.</p>
+      </li>
+      <li>
+        <p class="form-text">Usuário só poderá conter letras e/ou números.</p>
+      </li>
+      <li>
+        <p class="form-text">Usuário deverá ter entre 3 e 12 caracteres.</p>
+      </li>
+      <li>
+        <p class="form-text">Senha precisa ter entre 6 e 12 caracteres.</p>
+      </li>
+    </ul>
+    
+    <form action="" method="get" class="form">
+      <label id="nome" for="inputNome">Nome:</label>
+      <input name="nome" type="text" class="inputNome" id="inputNome">
+      <p class="erroMsgNome erroMsg"></p>
+      <label id="sobrenome" for="inputSobrenome">Sobrenome:</label>
+      <input name="sobrenome" type="text" class="inputSobrenome" id="inputSobrenome"></input>
+      <p class="erroMsgSobrenome erroMsg"></p>
+      <label id="cpf" for="inputCpf">CPF:</label>
+      <input name="cpf" type="text" class="inputCpf" id="inputCpf">
+      <p class="erroMsgCpf erroMsg"></p>
+      <label id="senha" for="inputSenha">Senha:</label>
+      <input name="senha" type="password" class="inputSenha" id="inputSenha">
+      <p class="erroMsgSenha erroMsg"></p>
+      <label id="senhaRepetida" for="inputSenhaRepetida">Repetir senha:</label>
+      <input name="senhaSenhaRepetida" type="password" class="inputSenhaRepetida" id="inputSenhaRepetida">
+      <p class="erroMsgSenhaRepetida erroMsg"></p>
+      <input type="submit" value="Enviar" class="btn">
+    </form>
+    <div class="resultado">
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Feito por: Vinício Gomes</p>
+    <p><a href="mailto:viniciogomes@gmail.com">viniciogomes@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/vinicio-da-silva-gomes/"><img src="./assets/img/LinkedIn_icon.svg"></a></p>
+  </footer>
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
