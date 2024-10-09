@@ -21,7 +21,7 @@
         <p class="form-text">Usuário deverá ter entre 3 e 12 caracteres.</p>
       </li>
       <li>
-        <p class="form-text">Senha precisa ter entre 6 e 12 caracteres.</p>
+        <p class="form-text">Senha precisa ter entre 6 e 12 caracteres, 1 letra maiúscula, 1 letra minúsucula, 1 número e 1 caracter especial.</p>
       </li>
     </ul>
     
@@ -33,7 +33,7 @@
       <input name="sobrenome" type="text" class="inputSobrenome" id="inputSobrenome"></input>
       <p class="erroMsgSobrenome erroMsg"></p>
       <label id="cpf" for="inputCpf">CPF:</label>
-      <input name="cpf" type="text" class="inputCpf" id="inputCpf">
+      <input name="cpf" type="text" maxlength="14" class="inputCpf" id="inputCpf">
       <p class="erroMsgCpf erroMsg"></p>
       <label id="senha" for="inputSenha">Senha:</label>
       <input name="senha" type="password" class="inputSenha" id="inputSenha">

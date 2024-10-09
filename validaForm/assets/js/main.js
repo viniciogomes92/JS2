@@ -160,7 +160,7 @@ function validaForm () {
     resultado.appendChild(pSobrenome);
     
     const pCpf = addMsg();
-    pCpf.innerText = cpfEnviado.value;
+    pCpf.innerText = cpf.novoCpf;
     resultado.appendChild(pCpf);
     
     const pSenha = addMsg();
