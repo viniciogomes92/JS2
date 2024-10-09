@@ -1,4 +1,5 @@
 function validaForm () {
+  // Puxamos o form, as TAG p de erro de cada campo e a div resultado
   const form = document.querySelector('.form');
   const erroMsgNome = document.querySelector('.erroMsgNome');
   const erroMsgSobrenome = document.querySelector('.erroMsgSobrenome');
@@ -7,16 +8,19 @@ function validaForm () {
   const erroMsgSenhaRepetida = document.querySelector('.erroMsgSenhaRepetida');
   const resultado = document.querySelector('.resultado');
 
+  // gera um elemento p e o retorna
   function addMsg () {
     const p = document.createElement('p');
     return p;
   }
 
+  // gera um elemento h1 e o retorna
   function addTitle() {
     const h1 = document.createElement('h1');
     return h1;
   }
 
+  // Classe que utilizamos para validar CPF oriundo do exercício anterior
   class ValidaCPF {
     constructor (cpfEnviado) {
       Object.defineProperty(this, 'cpfLimpo', {
@@ -61,6 +65,7 @@ function validaForm () {
     }
   }
 
+  // Função que zera o resultado gerado anterior caso haja
   function zeraResultado () {
     if (resultado.childElementCount !== 0) {
       while (resultado.firstChild) {
@@ -69,9 +74,11 @@ function validaForm () {
     }
   }
 
+  // Função que valida nossos campos
   function submitForm (event)  {
     event.preventDefault();
     
+    // Puxamos todos os inputs para os objetos de mesmo nome
     const nome = form.querySelector('.inputNome');
     const sobrenome = form.querySelector('.inputSobrenome');
     const cpfEnviado = form.querySelector('.inputCpf');
@@ -79,6 +86,7 @@ function validaForm () {
     const senhaRepetida = form.querySelector('.inputSenhaRepetida');
     const resultado = document.querySelector('.resultado');
     
+    //Verificamos se algum ou todos os campos estão vazios, se estiver retornamos erro e se for corrigido o erro ele remove a mensagem
     if (!nome.value || !sobrenome.value || !cpfEnviado.value || !senha.value || !senhaRepetida.value) {
       if (!nome.value) {
         erroMsgNome.innerText = 'Favor preencher este campo.';
@@ -120,6 +128,7 @@ function validaForm () {
       zeraResultado();
     }
 
+    // Valida o nome e sobrenome do usuário atendendo à regra descrita no erro com um REGEX.test()
     if (!(/^[a-zA-Z0-9]{3,12}$/.test(nome.value))){
       erroMsgNome.innerText = 'Nome deve conter de 3 à 12 caracteres e somente letras e/ou números.';
       return;
@@ -128,17 +137,20 @@ function validaForm () {
       return;
     }
 
+    // Utilizamos o método valida() da classe ValidaCPF na instância cpf para verificar o CPF informado
     const cpf = new ValidaCPF(cpfEnviado.value);
     if (!cpf.valida()) {
       erroMsgCpf.innerText = 'CPF Inválido.';
       return;
     }
 
+    // Usamos o REGEX.test() pra validar a senha, deve respeitar as regras descritas abaixo na mensagem de erro
     if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?\/-])[a-zA-Z0-9!@#$%^&*()_+={}\[\]:;"'<>,.?\/-]{6,12}$/.test(senha.value))) {
       erroMsgSenha.innerText = 'Senha deve ter 1 letra maiúscula, 1 letra minúsucula, 1 número e 1 caracter especial, além de possuir entre 6 e 12 caracters.';
       return;
     }
 
+    // Se a senha for diferente da confirmaçao da senha, retorna erro.
     if (senha.value !== senhaRepetida.value){
       erroMsgSenha.innerText = 'Senhas devem ser idênticas.';
       erroMsgSenhaRepetida.innerText = 'Senhas devem ser idênticas.';
@@ -147,6 +159,7 @@ function validaForm () {
 
     zeraResultado();
 
+    // Adicionamos então ao pai 'resultado' os filhos correspondentes ao valor de cada input validado
     const h1Resultado = addTitle();
     h1Resultado.innerText = 'Esse é resultado pós validação de todos os campos:';
     resultado.appendChild(h1Resultado);
