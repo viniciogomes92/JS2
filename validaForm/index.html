@@ -27,20 +27,29 @@
     
     <form action="" method="get" class="form">
       <label id="nome" for="inputNome">Nome:</label>
-      <input name="nome" type="text" class="inputNome" id="inputNome">
+      <input name="nome" type="text" class="inputNome validar" id="inputNome">
       <p class="erroMsgNome erroMsg"></p>
+      
       <label id="sobrenome" for="inputSobrenome">Sobrenome:</label>
-      <input name="sobrenome" type="text" class="inputSobrenome" id="inputSobrenome"></input>
+      <input name="sobrenome" type="text" class="inputSobrenome validar" id="inputSobrenome"></input>
       <p class="erroMsgSobrenome erroMsg"></p>
+      
       <label id="cpf" for="inputCpf">CPF:</label>
-      <input name="cpf" type="text" maxlength="14" class="inputCpf" id="inputCpf">
+      <input name="cpf" type="text" maxlength="14" class="inputCpf validar" id="inputCpf">
       <p class="erroMsgCpf erroMsg"></p>
+      
+      <label id="usuario" for="inputUsuario">Usuário:</label>
+      <input name="usuario" type="text" class="inputUsuario validar" id="inputUsuario">
+      <p class="erroMsgUsuario erroMsg"></p>
+      
       <label id="senha" for="inputSenha">Senha:</label>
-      <input name="senha" type="password" class="inputSenha" id="inputSenha">
+      <input name="senha" type="password" class="inputSenha validar" id="inputSenha">
       <p class="erroMsgSenha erroMsg"></p>
+      
       <label id="senhaRepetida" for="inputSenhaRepetida">Repetir senha:</label>
-      <input name="senhaSenhaRepetida" type="password" class="inputSenhaRepetida" id="inputSenhaRepetida">
+      <input name="senhaSenhaRepetida" type="password" class="inputSenhaRepetida validar" id="inputSenhaRepetida">
       <p class="erroMsgSenhaRepetida erroMsg"></p>
+      
       <input type="submit" value="Enviar" class="btn">
     </form>
     <div class="resultado">
@@ -53,6 +62,7 @@
     <p><a href="mailto:viniciogomes@gmail.com">viniciogomes@gmail.com</a></p>
     <p><a href="https://www.linkedin.com/in/vinicio-da-silva-gomes/"><img src="./assets/img/LinkedIn_icon.svg"></a></p>
   </footer>
-  <script src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/validaCPF.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>
